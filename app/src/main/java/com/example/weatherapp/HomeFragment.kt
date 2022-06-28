@@ -8,6 +8,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.core.net.toUri
 import androidx.fragment.app.activityViewModels
+import androidx.navigation.fragment.findNavController
 import coil.load
 import com.example.weatherapp.adapter.PredictHourlyAdapter
 import com.example.weatherapp.databinding.FragmentHomeBinding
@@ -31,10 +32,14 @@ class HomeFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+        binding.settingButton.setOnClickListener {
+            findNavController().navigate(R.id.action_homeFragment_to_settingFragment)
+        }
+
         viewModel.weatherData.observe(viewLifecycleOwner) {
             binding.location.text = it.timezone
             binding.weatherStatus.text = it.current.weather[0].main
-            binding.temp.text = "${(it.current.temp - 273.15).toInt()}\u2103"
+            binding.temp.text = "${(it.current.temp - 273.15).toInt()}°"
             val iconUrl = "http://openweathermap.org/img/wn/" + it.current.weather[0].icon + "@2x.png"
             val uri = iconUrl.toUri().buildUpon().scheme("https").build()
             binding.iconWeather.load(uri) {
@@ -61,6 +66,11 @@ class HomeFragment : Fragment() {
         viewModel.status.observe(viewLifecycleOwner) {
             binding.weatherStatus.text = it
         }
+    }
+
+    override fun onDestroyView() {
+        super.onDestroyView()
+        _binding = null
     }
 
 }

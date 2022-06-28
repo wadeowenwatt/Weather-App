@@ -8,7 +8,7 @@
 
     <com.google.android.material.card.MaterialCardView
         android:id="@+id/card_weather"
-        android:layout_width="370dp"
+        android:layout_width="358dp"
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal"
         app:cardCornerRadius="24dp"
@@ -34,6 +34,7 @@
                 android:orientation="horizontal">
 
                 <ImageButton
+                    android:id="@+id/add_button"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:adjustViewBounds="true"
@@ -54,6 +55,7 @@
                     tools:text="@string/app_name" />
 
                 <ImageButton
+                    android:id="@+id/setting_button"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:adjustViewBounds="true"
@@ -114,9 +116,10 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textColor="@color/white"
-                android:textSize="50sp"
+                style="@style/TextAppearance.AppCompat.Headline"
+                android:textSize="62sp"
                 android:textStyle="bold"
-                tools:text="37\u2103" />
+                tools:text="24\u00B0" />
 
             <TextView
                 android:id="@+id/weather_status"
@@ -127,7 +130,7 @@
                 tools:text="Rain" />
 
             <View
-                android:layout_width="300dp"
+                android:layout_width="350dp"
                 android:layout_height="2dp"
                 android:layout_margin="10dp"
                 android:background="@color/white" />
@@ -329,11 +332,11 @@
         android:layout_height="50dp"
         android:layout_marginTop="5dp"
         android:layout_marginBottom="16dp"
-        android:background="#00FFFFFF"
         android:text="Forcats for 7 Days"
         android:textAllCaps="false"
         android:textColor="@color/blue3"
         android:textSize="16sp"
+        android:icon="@drawable/img"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
