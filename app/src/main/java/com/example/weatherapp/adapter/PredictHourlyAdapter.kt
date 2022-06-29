@@ -33,7 +33,7 @@ class PredictHourlyAdapter(private val listHourlyPredict : List<Hourly>) :
         val uri = iconUrl.toUri().buildUpon().scheme("https").build()
         holder.iconStatus.load(uri)
 
-        holder.temp.text = "${(element.temp - 273.15).toInt()}\u2103"
+        holder.temp.text = "${(element.temp - 273.15).toInt()}°"
 
 //        holder.rainPercent.text = element.humidity.toString() + "% humidity"
     }

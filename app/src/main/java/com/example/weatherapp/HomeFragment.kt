@@ -32,20 +32,29 @@ class HomeFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+        // setting button
         binding.settingButton.setOnClickListener {
             findNavController().navigate(R.id.action_homeFragment_to_settingFragment)
         }
+        binding.addButton.setOnClickListener {
+            findNavController().navigate(R.id.action_homeFragment_to_manageLocationFragment)
+        }
 
+        // set data with viewModel
         viewModel.weatherData.observe(viewLifecycleOwner) {
             binding.location.text = it.timezone
+
             binding.weatherStatus.text = it.current.weather[0].main
+
             binding.temp.text = "${(it.current.temp - 273.15).toInt()}"
+
             val iconUrl = "http://openweathermap.org/img/wn/" + it.current.weather[0].icon + "@2x.png"
             val uri = iconUrl.toUri().buildUpon().scheme("https").build()
             binding.iconWeather.load(uri) {
                 placeholder(R.drawable.placeholdericon)
             }
 
+            // 4 attribute: wind, rain, pressure and humidity
             binding.wind.text = "${it.current.wind_speed} km/h"
             binding.chanceOfRain.text =
                 if (it.current.rain != null) it.current.rain.`1h`.toString() + " mm"
