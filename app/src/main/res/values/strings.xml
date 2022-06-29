@@ -25,4 +25,6 @@
     <string name="unit_setting">UNIT</string>
     <string name="extra_setting">EXTRA</string>
     <string name="setting_title">Setting</string>
+    <string name="location">Hanoi</string>
+    <string name="forcats_for_7_days">Forcats for 7 Days</string>
 </resources>

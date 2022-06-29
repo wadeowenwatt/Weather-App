@@ -39,7 +39,7 @@ class HomeFragment : Fragment() {
         viewModel.weatherData.observe(viewLifecycleOwner) {
             binding.location.text = it.timezone
             binding.weatherStatus.text = it.current.weather[0].main
-            binding.temp.text = "${(it.current.temp - 273.15).toInt()}°"
+            binding.temp.text = "${(it.current.temp - 273.15).toInt()}"
             val iconUrl = "http://openweathermap.org/img/wn/" + it.current.weather[0].icon + "@2x.png"
             val uri = iconUrl.toUri().buildUpon().scheme("https").build()
             binding.iconWeather.load(uri) {
