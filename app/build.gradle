@@ -57,4 +57,5 @@ dependencies {
     implementation "io.coil-kt:coil:1.1.1"
     implementation 'androidx.preference:preference:1.1.1'
 
+    implementation 'de.hdodenhof:circleimageview:3.0.0'
 }
