@@ -35,7 +35,7 @@ class PredictHourlyAdapter(private val listHourlyPredict : List<Hourly>) :
 
         holder.temp.text = "${(element.temp - 273.15).toInt()}\u2103"
 
-        holder.rainPercent.text = element.humidity.toString() + "% humidity"
+//        holder.rainPercent.text = element.humidity.toString() + "% humidity"
     }
 
     override fun getItemCount(): Int = 24
