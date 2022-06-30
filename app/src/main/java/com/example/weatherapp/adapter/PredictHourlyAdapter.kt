@@ -7,7 +7,7 @@ import androidx.recyclerview.widget.RecyclerView
 import coil.load
 import com.example.weatherapp.DataViewModel
 import com.example.weatherapp.R
-import com.example.weatherapp.data.Hourly
+import com.example.weatherapp.dataOneCall.Hourly
 import java.util.*
 
 class PredictHourlyAdapter(private val listHourlyPredict : List<Hourly>) :

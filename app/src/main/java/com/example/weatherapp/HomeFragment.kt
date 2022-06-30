@@ -1,6 +1,7 @@
 package com.example.weatherapp
 
 import android.os.Bundle
+import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
@@ -9,6 +10,7 @@ import androidx.core.net.toUri
 import androidx.fragment.app.activityViewModels
 import androidx.navigation.fragment.findNavController
 import coil.load
+import com.example.weatherapp.adapter.PredictDailyAdapter
 import com.example.weatherapp.adapter.PredictHourlyAdapter
 import com.example.weatherapp.databinding.FragmentHomeBinding
 
@@ -35,14 +37,14 @@ class HomeFragment : Fragment() {
             binding.bigCard.visibility = View.GONE
             binding.smallCard.visibility = View.VISIBLE
             binding.button7Days.visibility = View.GONE
+            binding.listDaily.visibility = View.VISIBLE
             bindingData()
         }
-
         bindingData()
-
     }
 
     private fun bindingData() {
+
         if (binding.bigCard.visibility == View.VISIBLE) {
             // setting button
             binding.settingButton.setOnClickListener {
@@ -51,13 +53,20 @@ class HomeFragment : Fragment() {
             binding.addButton.setOnClickListener {
                 findNavController().navigate(R.id.action_homeFragment_to_manageLocationFragment)
             }
+
+            viewModel.currentData.observe(viewLifecycleOwner) {
+                binding.location.text = it.name
+            }
             // set data with viewModel
             viewModel.weatherData.observe(viewLifecycleOwner) {
-                binding.location.text = it.timezone
 
                 binding.weatherStatus.text = it.current.weather[0].main
 
-                binding.temp.text = "${(it.current.temp - 273.15).toInt()}"
+                if (viewModel.typeDegree == "C") {
+                    binding.temp.text = "${(it.current.temp - 273.15).toInt()}"
+                } else {
+                    binding.temp.text = "${((it.current.temp - 273.15) * (9 / 5) + 32).toInt()}"
+                }
 
                 val iconUrl =
                     "http://openweathermap.org/img/wn/" + it.current.weather[0].icon + "@2x.png"
@@ -97,9 +106,13 @@ class HomeFragment : Fragment() {
             binding.addButton1.setOnClickListener {
                 findNavController().navigate(R.id.action_homeFragment_to_manageLocationFragment)
             }
+
+            viewModel.currentData.observe(viewLifecycleOwner) {
+                binding.location1.text = it.name
+            }
+
             // set data with viewModel
             viewModel.weatherData.observe(viewLifecycleOwner) {
-                binding.location1.text = it.timezone
 
                 binding.weatherStatus1.text = it.current.weather[0].main
 
@@ -128,6 +141,9 @@ class HomeFragment : Fragment() {
 
                 val adapter = PredictHourlyAdapter(it.hourly)
                 binding.predictHourlyRecycler.adapter = adapter
+
+                val adapterDaily = PredictDailyAdapter(it.daily)
+                binding.predictDailyRecycler.adapter = adapterDaily
             }
 
             viewModel.status.observe(viewLifecycleOwner) {

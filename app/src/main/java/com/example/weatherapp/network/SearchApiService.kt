@@ -1,5 +1,6 @@
 package com.example.weatherapp.network
 
+import com.example.weatherapp.dataCurrent.CurrentWeather
 import com.example.weatherapp.dataOneCall.WeatherData
 import com.squareup.moshi.Moshi
 import com.squareup.moshi.kotlin.reflect.KotlinJsonAdapterFactory
@@ -20,15 +21,14 @@ private val retrofit = Retrofit.Builder()
     .baseUrl(BASE_URL)
     .build()
 
-object WeatherApi {
-    val retrofitService : WeatherApiService by lazy {
-        retrofit.create(WeatherApiService::class.java)
+object SearchApi {
+    val retrofitService : SearchApiService by lazy {
+        retrofit.create(SearchApiService::class.java)
     }
 }
 
-interface WeatherApiService {
-    @GET("data/2.5/onecall?")
-    suspend fun getOneCallWeather(@Query("lat") lat: String,
-                                  @Query("lon") lon: String,
-                                  @Query("appid") appid: String) : WeatherData
+interface SearchApiService {
+    @GET("data/2.5/weather?")
+    suspend fun getSearchWeather(@Query("q") q: String,
+                                  @Query("appid") appid: String) : CurrentWeather
 }

@@ -28,4 +28,15 @@
     <string name="location">Hanoi</string>
     <string name="forcats_for_7_days">Forcats for 7 Days</string>
     <string name="manage_location">Manage Location</string>
+    <string name="c_degree">°C</string>
+    <string name="f_degree">°F</string>
+    <string name="km_h">km/h</string>
+    <string name="mil_h">mil/h</string>
+    <string name="m_s">m/s</string>
+    <string name="kn">kn</string>
+    <string name="mbar">mbar</string>
+    <string name="atm">atm</string>
+    <string name="mmhg">mmHg</string>
+    <string name="inhg">inHg</string>
+    <string name="hpa">hPa</string>
 </resources>

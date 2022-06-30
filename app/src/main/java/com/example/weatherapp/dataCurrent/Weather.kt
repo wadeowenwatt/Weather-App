@@ -1,4 +1,4 @@
-package com.example.weatherapp.data
+package com.example.weatherapp.dataCurrent
 
 data class Weather(
     val description: String,

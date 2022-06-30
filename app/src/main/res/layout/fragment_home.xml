@@ -25,7 +25,7 @@
             android:layout_height="match_parent"
             android:background="@drawable/gradient_background"
             android:visibility="visible"
-            tools:visibility="gone">
+            tools:visibility="visible">
 
             <ImageButton
                 android:id="@+id/add_button"
@@ -348,7 +348,7 @@
             android:layout_height="match_parent"
             android:background="@drawable/gradient_background"
             android:visibility="gone"
-            tools:visibility="visible">
+            tools:visibility="gone">
 
             <ImageButton
                 android:id="@+id/add_button1"
@@ -760,29 +760,44 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/materialCardView"
-        tools:visibility="gone"/>
+        tools:visibility="visible" />
 
-    <FrameLayout
+    <LinearLayout
+        android:id="@+id/list_daily"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="205dp"
         android:layout_marginTop="20dp"
         android:background="@color/blue3"
-        app:layout_constraintTop_toBottomOf="@+id/materialCardView"
+        android:orientation="vertical"
+        android:visibility="gone"
         app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent">
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/materialCardView"
+        app:layout_constraintBottom_toBottomOf="parent">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginBottom="8dp"
+            android:fontFamily="@font/poppins_medium"
+            android:textColor="@color/white"
+            android:textSize="16sp"
+            android:text="@string/forcats_for_7_days"
+            tools:text="Forcats for 7 Days" />
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/predict_daily_recycler"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="match_parent"
             android:orientation="vertical"
             app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
             app:layout_constraintTop_toBottomOf="@+id/materialCardView"
-            tools:itemCount="24"
-            tools:listitem="@layout/weather_per_hour" />
+            tools:itemCount="7"
+            tools:listitem="@layout/weather_per_daily" />
 
-    </FrameLayout>
-
+    </LinearLayout>
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
