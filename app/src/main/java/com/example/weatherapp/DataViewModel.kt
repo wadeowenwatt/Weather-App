@@ -5,6 +5,7 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import androidx.navigation.Navigation
 import com.example.weatherapp.dataCurrent.CurrentWeather
 import com.example.weatherapp.dataOneCall.WeatherData
 import com.example.weatherapp.network.CurrentApi
@@ -27,6 +28,9 @@ class DataViewModel() : ViewModel() {
     private val _searchData = MutableLiveData<CurrentWeather>()
     val searchData : LiveData<CurrentWeather> = _searchData
 
+    private val _listSearchData = MutableLiveData<MutableList<CurrentWeather>>(mutableListOf())
+    val listSearchData : LiveData<MutableList<CurrentWeather>> = _listSearchData
+
     var typeDegree = "C"
 
     var typeWind = "km"
@@ -39,7 +43,8 @@ class DataViewModel() : ViewModel() {
     private val lat = "21.0245"
     private val lon = "105.8412"
     private val keyID = "2f1f308ae7e8589c60232d6f42aa9631"
-    private val q = "Hanoi"
+
+    var q = "Hanoi"
 
 
     init {
@@ -73,6 +78,10 @@ class DataViewModel() : ViewModel() {
         }
     }
 
+    fun addLocation(item : CurrentWeather) {
+        _listSearchData.value!!.add(item)
+    }
+
     private fun getWeatherData() {
         viewModelScope.launch {
             try {
@@ -96,7 +105,7 @@ class DataViewModel() : ViewModel() {
         }
     }
 
-    private fun getSearchData() {
+    fun getSearchData() {
         viewModelScope.launch {
             try {
                 _searchData.value = SearchApi.retrofitService.getSearchWeather(q, keyID)

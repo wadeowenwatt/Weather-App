@@ -33,6 +33,11 @@ class HomeFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+        binding.dataViewModel = viewModel
+        binding.homeFragment = this
+
+        binding.lifecycleOwner = viewLifecycleOwner
+
         binding.button7Days.setOnClickListener {
             binding.bigCard.visibility = View.GONE
             binding.smallCard.visibility = View.VISIBLE
@@ -46,18 +51,7 @@ class HomeFragment : Fragment() {
     private fun bindingData() {
 
         if (binding.bigCard.visibility == View.VISIBLE) {
-            // setting button
-            binding.settingButton.setOnClickListener {
-                findNavController().navigate(R.id.action_homeFragment_to_settingFragment)
-            }
-            binding.addButton.setOnClickListener {
-                findNavController().navigate(R.id.action_homeFragment_to_manageLocationFragment)
-            }
 
-            viewModel.currentData.observe(viewLifecycleOwner) {
-                binding.location.text = it.name
-            }
-            // set data with viewModel
             viewModel.weatherData.observe(viewLifecycleOwner) {
 
                 binding.weatherStatus.text = it.current.weather[0].main
@@ -76,12 +70,12 @@ class HomeFragment : Fragment() {
                 }
 
                 // 4 attribute: wind, rain, pressure and humidity
-                binding.wind.text = "${it.current.wind_speed} km/h"
-                binding.chanceOfRain.text =
+//                binding.wind.text = "${it.current.wind_speed} km/h"
+                binding.volumeOfRain.text =
                     if (it.current.rain != null) it.current.rain.`1h`.toString() + " mm"
                     else "0 mm"
-                binding.pressure.text = "${it.current.pressure} mbar"
-                binding.humidity.text = "${it.current.humidity} %"
+//                binding.pressure.text = "${it.current.pressure} mbar"
+//                binding.humidity.text = "${it.current.humidity} %"
 
                 binding.dayInWeek.text = "${viewModel.convertEpochToDayOfWeek(it.current.dt)}"
                 binding.dayInMonth.text = "${viewModel.convertEpochToDay(it.current.dt)}"
@@ -150,6 +144,17 @@ class HomeFragment : Fragment() {
                 binding.weatherStatus1.text = it
             }
         }
+    }
+
+    // 2 methods are navigation action button for HomeFragment
+    fun onClickSettingButton() {
+        // setting button
+        findNavController().navigate(R.id.action_homeFragment_to_settingFragment)
+    }
+
+    fun onClickLocationManageButton() {
+        // location manage button
+        findNavController().navigate(R.id.action_homeFragment_to_manageLocationFragment)
     }
 
     override fun onDestroyView() {
