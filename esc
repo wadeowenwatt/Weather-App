@@ -1,0 +1,8 @@
+[33m0cdbb36[m[33m ([m[1;36mHEAD -> [m[1;32mmain[m[33m, [m[1;31morigin/main[m[33m)[m change viewBinding to dataBinding but has some bug
+[33m7f8634c[m add setting C and F degree
+[33ma563860[m change layout when click button
+[33ma42cda1[m[33m ([m[1;32mnavfragment[m[33m)[m add manage location fragment
+[33m3a685d1[m fix layout -> Constraint Layout
+[33md4d1e90[m save LinearLayout
+[33mc70a027[m add fragment and nav
+[33med93ff1[m First commit

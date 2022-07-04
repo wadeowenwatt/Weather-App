@@ -39,7 +39,8 @@ class DataViewModel() : ViewModel() {
     private val lat = "21.0245"
     private val lon = "105.8412"
     private val keyID = "2f1f308ae7e8589c60232d6f42aa9631"
-    private val q = "Hanoi"
+
+    var q = "Hanoi"
 
 
     init {
@@ -96,7 +97,7 @@ class DataViewModel() : ViewModel() {
         }
     }
 
-    private fun getSearchData() {
+    fun getSearchData() {
         viewModelScope.launch {
             try {
                 _searchData.value = SearchApi.retrofitService.getSearchWeather(q, keyID)
