@@ -7,6 +7,7 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import androidx.navigation.Navigation
 import com.example.weatherapp.dataCurrent.CurrentWeather
 import com.example.weatherapp.dataOneCall.WeatherData
 import com.example.weatherapp.network.CurrentApi
@@ -30,6 +31,7 @@ class DataViewModel() : ViewModel() {
     val searchData : LiveData<CurrentWeather> = _searchData
 
     private var _listSearchData = MutableLiveData<MutableList<CurrentWeather>>(mutableListOf())
+
     val listSearchData : LiveData<MutableList<CurrentWeather>> = _listSearchData
 
     var typeDegree = "C"
@@ -79,6 +81,10 @@ class DataViewModel() : ViewModel() {
             6 -> "Sat"
             else -> "Sun"
         }
+    }
+
+    fun addLocation(item : CurrentWeather) {
+        _listSearchData.value!!.add(item)
     }
 
     private fun getWeatherData() {

@@ -240,7 +240,7 @@
                     android:src="@drawable/rain_icon" />
 
                 <TextView
-                    android:id="@+id/chance_of_rain"
+                    android:id="@+id/volume_of_rain"
                     android:layout_width="100dp"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="40dp"
