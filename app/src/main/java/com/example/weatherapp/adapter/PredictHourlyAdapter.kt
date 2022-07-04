@@ -10,10 +10,10 @@ import com.example.weatherapp.R
 import com.example.weatherapp.dataOneCall.Hourly
 import java.util.*
 
-class PredictHourlyAdapter(private val listHourlyPredict : List<Hourly>) :
+class PredictHourlyAdapter(
+    private val listHourlyPredict : List<Hourly>,
+    private val viewModel : DataViewModel) :
     RecyclerView.Adapter<PredictHourlyViewHolder>() {
-
-    private val viewModel = DataViewModel()
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): PredictHourlyViewHolder {
         val layoutView = LayoutInflater.from(parent.context).inflate(R.layout.weather_per_hour, parent, false)
@@ -36,7 +36,7 @@ class PredictHourlyAdapter(private val listHourlyPredict : List<Hourly>) :
         if (viewModel.typeDegree == "C") {
             holder.temp.text = "${(element.temp - 273.15).toInt()}°"
         } else {
-            holder.temp.text = "${((element.temp - 273.15) * (9 / 5) + 32).toInt()}"
+            holder.temp.text = "${((element.temp - 273.15) * (9 / 5) + 32).toInt()}°"
         }
 //        holder.rainPercent.text = element.humidity.toString() + "% humidity"
     }

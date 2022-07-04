@@ -1,9 +1,9 @@
 package com.example.weatherapp.dataCurrent
 
 data class CurrentWeather(
-    val base: String,
+    val base: String? = null,
     val clouds: Clouds,
-    val cod: Int,
+    val cod: Int? = null,
     val coord: Coord? = null,
     val dt: Int,
     val id: Int,

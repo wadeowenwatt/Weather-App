@@ -99,7 +99,7 @@ class DataViewModel() : ViewModel() {
                 }
                 Log.e("callback", "call API")
             } catch (e : Exception) {
-//                Toast.makeText(this, e.toString(), Toast.LENGTH_SHORT).show()
+                _status.value = e.toString()
             }
         }
     }
@@ -110,7 +110,7 @@ class DataViewModel() : ViewModel() {
                 _searchData.value = SearchApi.retrofitService.getSearchWeather(q, keyID)
                 listSearchData.value?.add(_searchData.value!!)
             } catch(e: Exception) {
-//                _status.value = e.toString()
+                _status.value = e.toString()
             }
         }
     }

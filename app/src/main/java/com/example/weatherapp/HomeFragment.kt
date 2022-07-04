@@ -39,6 +39,7 @@ class HomeFragment : Fragment() {
             binding.listDaily.visibility = View.VISIBLE
             bindingData()
         }
+
         bindingData()
     }
 
@@ -95,13 +96,13 @@ class HomeFragment : Fragment() {
                 binding.dayInWeekBold.text = "${viewModel.convertEpochToDayOfWeek(it.current.dt)}"
                 binding.dayInMonthBold.text = "${viewModel.convertEpochToDay(it.current.dt)}"
 
-                val adapter = PredictHourlyAdapter(it.hourly)
+                val adapter = PredictHourlyAdapter(it.hourly, viewModel)
                 binding.predictHourlyRecycler.adapter = adapter
             }
 
-            viewModel.status.observe(viewLifecycleOwner) {
-                binding.weatherStatus.text = it
-            }
+//            viewModel.status.observe(viewLifecycleOwner) {
+//                binding.weatherStatus.text = it
+//            }
         }
 
         if (binding.smallCard.visibility == View.VISIBLE){
@@ -156,16 +157,16 @@ class HomeFragment : Fragment() {
                 binding.dayInWeekBold.text = "${viewModel.convertEpochToDayOfWeek(it.current.dt)}"
                 binding.dayInMonthBold.text = "${viewModel.convertEpochToDay(it.current.dt)}"
 
-                val adapter = PredictHourlyAdapter(it.hourly)
+                val adapter = PredictHourlyAdapter(it.hourly, viewModel)
                 binding.predictHourlyRecycler.adapter = adapter
 
-                val adapterDaily = PredictDailyAdapter(it.daily)
+                val adapterDaily = PredictDailyAdapter(it.daily, viewModel)
                 binding.predictDailyRecycler.adapter = adapterDaily
             }
 
-            viewModel.status.observe(viewLifecycleOwner) {
-                binding.weatherStatus1.text = it
-            }
+//            viewModel.status.observe(viewLifecycleOwner) {
+//                binding.weatherStatus1.text = it
+//            }
         }
     }
 

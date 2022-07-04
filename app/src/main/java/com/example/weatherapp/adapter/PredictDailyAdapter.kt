@@ -9,10 +9,10 @@ import com.example.weatherapp.DataViewModel
 import com.example.weatherapp.R
 import com.example.weatherapp.dataOneCall.Daily
 
-class PredictDailyAdapter(private val listDaily : List<Daily>) :
+class PredictDailyAdapter(
+    private val listDaily : List<Daily>,
+    private val viewModel : DataViewModel) :
     RecyclerView.Adapter<PredictDailyViewHolder>() {
-
-    private val viewModel = DataViewModel()
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): PredictDailyViewHolder {
         val layoutView = LayoutInflater.from(parent.context)
@@ -32,7 +32,7 @@ class PredictDailyAdapter(private val listDaily : List<Daily>) :
         if (viewModel.typeDegree == "C") {
             holder.temp.text = "${(element.temp.day - 273.15).toInt()}°"
         } else {
-            holder.temp.text = "${((element.temp.day - 273.15) * (9 / 5) + 32).toInt()}"
+            holder.temp.text = "${((element.temp.day - 273.15) * (9 / 5) + 32).toInt()}°"
         }
     }
 

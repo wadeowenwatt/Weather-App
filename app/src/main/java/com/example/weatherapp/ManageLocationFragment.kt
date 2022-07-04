@@ -5,6 +5,7 @@ import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.appcompat.widget.SearchView
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
@@ -31,10 +32,11 @@ class ManageLocationFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-
         binding.backButton.setOnClickListener {
             findNavController().navigate(R.id.action_manageLocationFragment_to_homeFragment)
         }
+
+        binding.searchView.queryHint = "Search Your City"
 
         binding.searchView.setOnQueryTextListener(object : SearchView.OnQueryTextListener {
             override fun onQueryTextChange(newText: String?): Boolean {
@@ -47,16 +49,30 @@ class ManageLocationFragment : Fragment() {
                 if (query != null) {
                     viewModel.q = query
                     viewModel.getSearchData()
+                    if (viewModel.status.value != null) {
+                        Toast.makeText(requireContext(), viewModel.status.value, Toast.LENGTH_LONG).show()
+                    }
+
+                    bindingData()
                 }
                 return false
             }
         })
 
+        bindingData()
+
+    }
+
+    private fun bindingData() {
         viewModel.listSearchData.observe(viewLifecycleOwner) {
-            val adapter = viewModel.listSearchData.value?.let { LocationManageAdapter(it) }
+            val adapter = viewModel.listSearchData.value?.let { LocationManageAdapter(it, viewModel) }
             binding.listCity.adapter = adapter
         }
+    }
 
+    override fun onDestroyView() {
+        super.onDestroyView()
+        _binding = null
     }
 
 }
