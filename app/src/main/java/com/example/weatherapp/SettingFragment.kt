@@ -51,18 +51,31 @@ class SettingFragment : Fragment() {
         binding.button3.setOnClickListener { v: View ->
             val popup = PopupMenu(context!!, v)
             popup.menuInflater.inflate(R.menu.popup_wind_unit, popup.menu)
-//            popup.setOnMenuItemClickListener { menuItem: MenuItem ->
-//
-//            }
+            popup.setOnMenuItemClickListener { menuItem: MenuItem ->
+                when (menuItem.itemId) {
+                    R.id.wind_1 -> viewModel.typeWind = "km/h"
+                    R.id.wind_2 -> viewModel.typeWind = "mil/h"
+                    R.id.wind_3 -> viewModel.typeWind = "m/s"
+                    else -> viewModel.typeWind = "kn"
+                }
+                true
+            }
             popup.show()
         }
 
         binding.button4.setOnClickListener { v: View ->
             val popup = PopupMenu(context!!, v)
             popup.menuInflater.inflate(R.menu.popup_atmos_unit, popup.menu)
-//            popup.setOnMenuItemClickListener { menuItem: MenuItem ->
-//
-//            }
+            popup.setOnMenuItemClickListener { menuItem: MenuItem ->
+                when (menuItem.itemId) {
+                    R.id.atmos_1 -> viewModel.typeAtmos = "mbar"
+                    R.id.atmos_2 -> viewModel.typeAtmos = "atm"
+                    R.id.atmos_3 -> viewModel.typeAtmos = "mmHg"
+                    R.id.atmos_4 -> viewModel.typeAtmos = "inHg"
+                    else -> viewModel.typeWind = "hPa"
+                }
+                true
+            }
             popup.show()
         }
 

@@ -76,11 +76,22 @@ class HomeFragment : Fragment() {
                 }
 
                 // 4 attribute: wind, rain, pressure and humidity
-                binding.wind.text = "${it.current.wind_speed} km/h"
+                when (viewModel.typeWind) {
+                    "km/h" -> binding.wind.text = "${it.current.wind_speed} km/h"
+                    "mil/h" -> binding.wind.text = "%.2f mil/h".format(it.current.wind_speed * 0.621371192)
+                    "m/s" -> binding.wind.text = "%.2f m/s".format(it.current.wind_speed * 0.277777777)
+                    else -> binding.wind.text = "%.2f kn".format(it.current.wind_speed * 0.539957)
+                }
                 binding.chanceOfRain.text =
                     if (it.current.rain != null) it.current.rain.`1h`.toString() + " mm"
                     else "0 mm"
-                binding.pressure.text = "${it.current.pressure} mbar"
+                when (viewModel.typeAtmos) {
+                    "mbar" -> binding.pressure.text = "${it.current.pressure} mbar"
+                    "atm" -> binding.pressure.text = "%.2f atm".format(it.current.pressure * 0.000986923267)
+                    "mmHg" -> binding.pressure.text = "%.2f mmHg".format(it.current.pressure * 0.750061683)
+                    "inHg" -> binding.pressure.text = "%.2f inHg".format(it.current.pressure * 0.0295333727)
+                    else -> binding.pressure.text = "${it.current.pressure} hPa"
+                }
                 binding.humidity.text = "${it.current.humidity} %"
 
                 binding.dayInWeek.text = "${viewModel.convertEpochToDayOfWeek(it.current.dt)}"

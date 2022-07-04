@@ -19,8 +19,6 @@ class ManageLocationFragment : Fragment() {
 
     private val viewModel: DataViewModel by activityViewModels()
 
-    private lateinit var listSearchData : MutableList<CurrentWeather>
-
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -36,8 +34,6 @@ class ManageLocationFragment : Fragment() {
         binding.backButton.setOnClickListener {
             findNavController().navigate(R.id.action_manageLocationFragment_to_homeFragment)
         }
-
-        binding.searchView.isSubmitButtonEnabled = true
 
         binding.searchView.setOnQueryTextListener(object : SearchView.OnQueryTextListener {
             override fun onQueryTextChange(newText: String?): Boolean {
@@ -55,9 +51,8 @@ class ManageLocationFragment : Fragment() {
             }
         })
 
-        viewModel.searchData.observe(viewLifecycleOwner) {
-            listSearchData= mutableListOf(it)
-            val adapter = LocationManageAdapter(listSearchData)
+        viewModel.listSearchData.observe(viewLifecycleOwner) {
+            val adapter = viewModel.listSearchData.value?.let { LocationManageAdapter(it) }
             binding.listCity.adapter = adapter
         }
 

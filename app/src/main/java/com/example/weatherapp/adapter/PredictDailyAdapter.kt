@@ -29,7 +29,11 @@ class PredictDailyAdapter(private val listDaily : List<Daily>) :
         val uri = iconUrl.toUri().buildUpon().scheme("https").build()
         holder.statusWeather.load(uri)
 
-        holder.temp.text = "${(element.temp.day - 273.15).toInt()}°"
+        if (viewModel.typeDegree == "C") {
+            holder.temp.text = "${(element.temp.day - 273.15).toInt()}°"
+        } else {
+            holder.temp.text = "${((element.temp.day - 273.15) * (9 / 5) + 32).toInt()}"
+        }
     }
 
     override fun getItemCount() = 7

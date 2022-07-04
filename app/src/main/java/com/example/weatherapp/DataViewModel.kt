@@ -1,6 +1,8 @@
 package com.example.weatherapp
 
+import android.app.Activity
 import android.util.Log
+import android.widget.Toast
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
@@ -27,11 +29,16 @@ class DataViewModel() : ViewModel() {
     private val _searchData = MutableLiveData<CurrentWeather>()
     val searchData : LiveData<CurrentWeather> = _searchData
 
+    private var _listSearchData = MutableLiveData<MutableList<CurrentWeather>>(mutableListOf())
+    val listSearchData : LiveData<MutableList<CurrentWeather>> = _listSearchData
+
     var typeDegree = "C"
 
-    var typeWind = "km"
+    var typeWind = "km/h"
 
     var typeAtmos = "mbar"
+
+    private var count = 0
 
     private val _status = MutableLiveData<String>()
     val status : LiveData<String> = _status
@@ -80,19 +87,13 @@ class DataViewModel() : ViewModel() {
                 _weatherData.value = WeatherApi.retrofitService.getOneCallWeather(lat, lon, keyID)
                 _currentData.value = CurrentApi.retrofitService.getCurrentWeather(lat, lon, keyID)
                 _searchData.value = SearchApi.retrofitService.getSearchWeather(currentData.value!!.name, keyID)
+                if (count == 0) {
+                    listSearchData.value?.add(searchData.value!!)
+                    count++
+                }
                 Log.e("callback", "call API")
             } catch (e : Exception) {
-                _status.value = e.toString()
-            }
-        }
-    }
-
-    private fun getCurrentData() {
-        viewModelScope.launch {
-            try {
-                _currentData.value = CurrentApi.retrofitService.getCurrentWeather(lat, lon, keyID)
-            } catch (e: Exception) {
-                _status.value = e.toString()
+//                Toast.makeText(this, e.toString(), Toast.LENGTH_SHORT).show()
             }
         }
     }
@@ -101,8 +102,9 @@ class DataViewModel() : ViewModel() {
         viewModelScope.launch {
             try {
                 _searchData.value = SearchApi.retrofitService.getSearchWeather(q, keyID)
+                listSearchData.value?.add(_searchData.value!!)
             } catch(e: Exception) {
-                _status.value = e.toString()
+//                _status.value = e.toString()
             }
         }
     }
