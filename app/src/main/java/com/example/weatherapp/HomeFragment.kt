@@ -1,7 +1,6 @@
 package com.example.weatherapp
 
 import android.os.Bundle
-import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
@@ -33,11 +32,6 @@ class HomeFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        binding.dataViewModel = viewModel
-        binding.homeFragment = this
-
-        binding.lifecycleOwner = viewLifecycleOwner
-
         binding.button7Days.setOnClickListener {
             binding.bigCard.visibility = View.GONE
             binding.smallCard.visibility = View.VISIBLE
@@ -51,6 +45,13 @@ class HomeFragment : Fragment() {
     private fun bindingData() {
 
         if (binding.bigCard.visibility == View.VISIBLE) {
+
+            binding.addButton.setOnClickListener { onClickLocationManageButton() }
+            binding.settingButton.setOnClickListener { onClickSettingButton() }
+
+            viewModel.currentData.observe(viewLifecycleOwner) {
+                binding.location.text = it.name
+            }
 
             viewModel.weatherData.observe(viewLifecycleOwner) {
 
@@ -104,13 +105,9 @@ class HomeFragment : Fragment() {
         }
 
         if (binding.smallCard.visibility == View.VISIBLE){
-            // setting button
-            binding.settingButton1.setOnClickListener {
-                findNavController().navigate(R.id.action_homeFragment_to_settingFragment)
-            }
-            binding.addButton1.setOnClickListener {
-                findNavController().navigate(R.id.action_homeFragment_to_manageLocationFragment)
-            }
+
+            binding.addButton1.setOnClickListener { onClickLocationManageButton() }
+            binding.settingButton1.setOnClickListener { onClickSettingButton() }
 
             viewModel.currentData.observe(viewLifecycleOwner) {
                 binding.location1.text = it.name
@@ -121,7 +118,11 @@ class HomeFragment : Fragment() {
 
                 binding.weatherStatus1.text = it.current.weather[0].main
 
-                binding.temp1.text = "${(it.current.temp - 273.15).toInt()}"
+                if (viewModel.typeDegree == "C") {
+                    binding.temp1.text = "${(it.current.temp - 273.15).toInt()}"
+                } else {
+                    binding.temp1.text = "${((it.current.temp - 273.15) * (9 / 5) + 32).toInt()}"
+                }
 
                 val iconUrl =
                     "http://openweathermap.org/img/wn/" + it.current.weather[0].icon + "@2x.png"
@@ -131,11 +132,22 @@ class HomeFragment : Fragment() {
                 }
 
                 // 4 attribute: wind, rain, pressure and humidity
-                binding.wind1.text = "${it.current.wind_speed} km/h"
+                when (viewModel.typeWind) {
+                    "km/h" -> binding.wind1.text = "${it.current.wind_speed} km/h"
+                    "mil/h" -> binding.wind1.text = "%.2f mil/h".format(it.current.wind_speed * 0.621371192)
+                    "m/s" -> binding.wind1.text = "%.2f m/s".format(it.current.wind_speed * 0.277777777)
+                    else -> binding.wind1.text = "%.2f kn".format(it.current.wind_speed * 0.539957)
+                }
                 binding.chanceOfRain1.text =
                     if (it.current.rain != null) it.current.rain.`1h`.toString() + " mm"
                     else "0 mm"
-                binding.pressure1.text = "${it.current.pressure} mbar"
+                when (viewModel.typeAtmos) {
+                    "mbar" -> binding.pressure1.text = "${it.current.pressure} mbar"
+                    "atm" -> binding.pressure1.text = "%.2f atm".format(it.current.pressure * 0.000986923267)
+                    "mmHg" -> binding.pressure1.text = "%.2f mmHg".format(it.current.pressure * 0.750061683)
+                    "inHg" -> binding.pressure1.text = "%.2f inHg".format(it.current.pressure * 0.0295333727)
+                    else -> binding.pressure1.text = "${it.current.pressure} hPa"
+                }
                 binding.humidity1.text = "${it.current.humidity} %"
 
                 binding.dayInWeek1.text = "${viewModel.convertEpochToDayOfWeek(it.current.dt)}"

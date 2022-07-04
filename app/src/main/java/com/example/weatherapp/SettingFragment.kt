@@ -85,7 +85,6 @@ class SettingFragment : Fragment() {
         val popup = PopupMenu(context!!, v)
         popup.menuInflater.inflate(menuRes, popup.menu)
 
-//
         popup.setOnDismissListener {
             // Respond to popup being dismissed.
         }
