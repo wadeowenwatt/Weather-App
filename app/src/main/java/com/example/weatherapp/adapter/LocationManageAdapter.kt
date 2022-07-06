@@ -5,13 +5,14 @@ import android.view.ViewGroup
 import androidx.core.net.toUri
 import androidx.recyclerview.widget.RecyclerView
 import coil.load
-import com.example.weatherapp.DataViewModel
+import com.example.weatherapp.viewmodel.DataViewModel
 import com.example.weatherapp.R
-import com.example.weatherapp.dataCurrent.CurrentWeather
+import com.example.weatherapp.data.dataCurrent.CurrentWeather
 
 class LocationManageAdapter(
     private val listCity : MutableList<CurrentWeather>,
-    private val viewModel : DataViewModel) : RecyclerView.Adapter<LocationManageViewHolder>() {
+    private val viewModel : DataViewModel
+) : RecyclerView.Adapter<LocationManageViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): LocationManageViewHolder {
         val layoutView = LayoutInflater.from(parent.context).inflate(R.layout.weather_location, parent, false)

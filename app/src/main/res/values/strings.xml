@@ -30,13 +30,13 @@
     <string name="manage_location">Manage Location</string>
     <string name="c_degree">°C</string>
     <string name="f_degree">°F</string>
-    <string name="km_h">km/h</string>
-    <string name="mil_h">mil/h</string>
-    <string name="m_s">m/s</string>
-    <string name="kn">kn</string>
-    <string name="mbar">mbar</string>
-    <string name="atm">atm</string>
-    <string name="mmhg">mmHg</string>
-    <string name="inhg">inHg</string>
-    <string name="hpa">hPa</string>
+    <string name="km_h">%.2f km/h</string>
+    <string name="mil_h">%.2f mil/h</string>
+    <string name="m_s">%.2f m/s</string>
+    <string name="kn">%.2f kn</string>
+    <string name="mbar">%d mbar</string>
+    <string name="atm">%.2f atm</string>
+    <string name="mmhg">%.2f mmHg</string>
+    <string name="inhg">%.2f inHg</string>
+    <string name="hpa">%d hPa</string>
 </resources>

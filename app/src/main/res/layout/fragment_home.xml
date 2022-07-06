@@ -768,6 +768,7 @@
         android:layout_width="match_parent"
         android:layout_height="180dp"
         android:layout_marginTop="20dp"
+        android:animateLayoutChanges="true"
         android:background="@color/blue3"
         android:orientation="vertical"
         android:visibility="gone"

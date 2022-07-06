@@ -1,15 +1,12 @@
-package com.example.weatherapp
+package com.example.weatherapp.viewmodel
 
-import android.app.Activity
 import android.util.Log
-import android.widget.Toast
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import androidx.navigation.Navigation
-import com.example.weatherapp.dataCurrent.CurrentWeather
-import com.example.weatherapp.dataOneCall.WeatherData
+import com.example.weatherapp.data.dataCurrent.CurrentWeather
+import com.example.weatherapp.data.dataOneCall.WeatherData
 import com.example.weatherapp.network.CurrentApi
 import com.example.weatherapp.network.SearchApi
 import com.example.weatherapp.network.WeatherApi
@@ -18,7 +15,7 @@ import java.lang.Exception
 import java.text.SimpleDateFormat
 import java.util.*
 
-class DataViewModel() : ViewModel() {
+class DataViewModel : ViewModel() {
 
     //https://api.openweathermap.org/data/2.5/weather?lat=21.030653&lon=105.847130&appid=2f1f308ae7e8589c60232d6f42aa9631
     private val _weatherData = MutableLiveData<WeatherData>()
@@ -48,9 +45,6 @@ class DataViewModel() : ViewModel() {
     private val lat = "21.0245"
     private val lon = "105.8412"
     private val keyID = "2f1f308ae7e8589c60232d6f42aa9631"
-
-    var q = "Hanoi"
-
 
     init {
         getWeatherData()
@@ -83,10 +77,6 @@ class DataViewModel() : ViewModel() {
         }
     }
 
-    fun addLocation(item : CurrentWeather) {
-        _listSearchData.value!!.add(item)
-    }
-
     private fun getWeatherData() {
         viewModelScope.launch {
             try {
@@ -104,7 +94,7 @@ class DataViewModel() : ViewModel() {
         }
     }
 
-    fun getSearchData() {
+    fun getSearchData(q: String) {
         viewModelScope.launch {
             try {
                 _searchData.value = SearchApi.retrofitService.getSearchWeather(q, keyID)
@@ -113,5 +103,6 @@ class DataViewModel() : ViewModel() {
                 _status.value = e.toString()
             }
         }
+
     }
 }

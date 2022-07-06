@@ -12,6 +12,7 @@ import coil.load
 import com.example.weatherapp.adapter.PredictDailyAdapter
 import com.example.weatherapp.adapter.PredictHourlyAdapter
 import com.example.weatherapp.databinding.FragmentHomeBinding
+import com.example.weatherapp.viewmodel.DataViewModel
 
 class HomeFragment : Fragment() {
 
@@ -23,7 +24,7 @@ class HomeFragment : Fragment() {
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
         // Inflate the layout for this fragment
         _binding = FragmentHomeBinding.inflate(inflater)
         return binding.root
@@ -73,20 +74,20 @@ class HomeFragment : Fragment() {
 
                 // 4 attribute: wind, rain, pressure and humidity
                 when (viewModel.typeWind) {
-                    "km/h" -> binding.wind.text = "${it.current.wind_speed} km/h"
-                    "mil/h" -> binding.wind.text = "%.2f mil/h".format(it.current.wind_speed * 0.621371192)
-                    "m/s" -> binding.wind.text = "%.2f m/s".format(it.current.wind_speed * 0.277777777)
-                    else -> binding.wind.text = "%.2f kn".format(it.current.wind_speed * 0.539957)
+                    "km/h" -> binding.wind.text = getString(R.string.km_h, it.current.wind_speed)
+                    "mil/h" -> binding.wind.text = getString(R.string.mil_h, it.current.wind_speed * 0.621371192)
+                    "m/s" -> binding.wind.text = getString(R.string.m_s, it.current.wind_speed * 0.277777777)
+                    else -> binding.wind.text = getString(R.string.kn, it.current.wind_speed * 0.539957)
                 }
                 binding.volumeOfRain.text =
                     if (it.current.rain != null) it.current.rain.`1h`.toString() + " mm"
                     else "0 mm"
                 when (viewModel.typeAtmos) {
-                    "mbar" -> binding.pressure.text = "${it.current.pressure} mbar"
-                    "atm" -> binding.pressure.text = "%.2f atm".format(it.current.pressure * 0.000986923267)
-                    "mmHg" -> binding.pressure.text = "%.2f mmHg".format(it.current.pressure * 0.750061683)
-                    "inHg" -> binding.pressure.text = "%.2f inHg".format(it.current.pressure * 0.0295333727)
-                    else -> binding.pressure.text = "${it.current.pressure} hPa"
+                    "mbar" -> binding.pressure.text = getString(R.string.mbar, it.current.pressure)
+                    "atm" -> binding.pressure.text = getString(R.string.atm, it.current.pressure * 0.000986923267)
+                    "mmHg" -> binding.pressure.text = getString(R.string.mmhg, it.current.pressure * 0.750061683)
+                    "inHg" -> binding.pressure.text = getString(R.string.inhg, it.current.pressure * 0.0295333727)
+                    else -> binding.pressure.text = getString(R.string.hpa, it.current.pressure)
                 }
                 binding.humidity.text = "${it.current.humidity} %"
 
@@ -134,20 +135,20 @@ class HomeFragment : Fragment() {
 
                 // 4 attribute: wind, rain, pressure and humidity
                 when (viewModel.typeWind) {
-                    "km/h" -> binding.wind1.text = "${it.current.wind_speed} km/h"
-                    "mil/h" -> binding.wind1.text = "%.2f mil/h".format(it.current.wind_speed * 0.621371192)
-                    "m/s" -> binding.wind1.text = "%.2f m/s".format(it.current.wind_speed * 0.277777777)
-                    else -> binding.wind1.text = "%.2f kn".format(it.current.wind_speed * 0.539957)
+                    "km/h" -> binding.wind1.text = getString(R.string.km_h, it.current.wind_speed)
+                    "mil/h" -> binding.wind1.text = getString(R.string.mil_h, it.current.wind_speed * 0.621371192)
+                    "m/s" -> binding.wind1.text = getString(R.string.m_s, it.current.wind_speed * 0.277777777)
+                    else -> binding.wind1.text = getString(R.string.kn, it.current.wind_speed * 0.539957)
                 }
                 binding.chanceOfRain1.text =
                     if (it.current.rain != null) it.current.rain.`1h`.toString() + " mm"
                     else "0 mm"
                 when (viewModel.typeAtmos) {
-                    "mbar" -> binding.pressure1.text = "${it.current.pressure} mbar"
-                    "atm" -> binding.pressure1.text = "%.2f atm".format(it.current.pressure * 0.000986923267)
-                    "mmHg" -> binding.pressure1.text = "%.2f mmHg".format(it.current.pressure * 0.750061683)
-                    "inHg" -> binding.pressure1.text = "%.2f inHg".format(it.current.pressure * 0.0295333727)
-                    else -> binding.pressure1.text = "${it.current.pressure} hPa"
+                    "mbar" -> binding.pressure1.text = getString(R.string.mbar, it.current.pressure)
+                    "atm" -> binding.pressure1.text = getString(R.string.atm, it.current.pressure * 0.000986923267)
+                    "mmHg" -> binding.pressure1.text = getString(R.string.mmhg, it.current.pressure * 0.750061683)
+                    "inHg" -> binding.pressure1.text = getString(R.string.inhg, it.current.pressure * 0.0295333727)
+                    else -> binding.pressure1.text = getString(R.string.hpa, it.current.pressure)
                 }
                 binding.humidity1.text = "${it.current.humidity} %"
 

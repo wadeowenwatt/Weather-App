@@ -5,14 +5,15 @@ import android.view.ViewGroup
 import androidx.core.net.toUri
 import androidx.recyclerview.widget.RecyclerView
 import coil.load
-import com.example.weatherapp.DataViewModel
+import com.example.weatherapp.viewmodel.DataViewModel
 import com.example.weatherapp.R
-import com.example.weatherapp.dataOneCall.Hourly
+import com.example.weatherapp.data.dataOneCall.Hourly
 import java.util.*
 
 class PredictHourlyAdapter(
     private val listHourlyPredict : List<Hourly>,
-    private val viewModel : DataViewModel) :
+    private val viewModel : DataViewModel
+) :
     RecyclerView.Adapter<PredictHourlyViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): PredictHourlyViewHolder {

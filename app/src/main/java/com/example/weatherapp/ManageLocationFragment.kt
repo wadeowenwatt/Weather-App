@@ -5,14 +5,15 @@ import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Toast
 import androidx.appcompat.widget.SearchView
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
 import androidx.navigation.fragment.findNavController
 import com.example.weatherapp.adapter.LocationManageAdapter
-import com.example.weatherapp.dataCurrent.CurrentWeather
 import com.example.weatherapp.databinding.FragmentManageLocationBinding
+import com.example.weatherapp.viewmodel.DataViewModel
+import kotlinx.coroutines.delay
+import kotlinx.coroutines.runBlocking
 
 class ManageLocationFragment : Fragment() {
 
@@ -47,26 +48,23 @@ class ManageLocationFragment : Fragment() {
             override fun onQueryTextSubmit(query: String?): Boolean {
                 // Do your task here
                 if (query != null) {
-                    viewModel.q = query
-                    viewModel.getSearchData()
-                    if (viewModel.status.value != null) {
-                        Toast.makeText(requireContext(), viewModel.status.value, Toast.LENGTH_LONG).show()
+                    runBlocking {
+                        viewModel.getSearchData(query)
+                        delay(500)
                     }
-
                     bindingData()
                 }
                 return false
             }
         })
-
         bindingData()
-
     }
 
     private fun bindingData() {
         viewModel.listSearchData.observe(viewLifecycleOwner) {
-            val adapter = viewModel.listSearchData.value?.let { LocationManageAdapter(it, viewModel) }
+            val adapter = LocationManageAdapter(it, viewModel)
             binding.listCity.adapter = adapter
+            Log.e("callback", it.size.toString())
         }
     }
 

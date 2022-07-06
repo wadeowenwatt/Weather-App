@@ -1,4 +1,4 @@
-package com.example.weatherapp.dataCurrent
+package com.example.weatherapp.data.dataCurrent
 
 data class Main(
     val feels_like: Double? = null,

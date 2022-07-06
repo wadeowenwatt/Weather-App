@@ -1,4 +1,4 @@
-package com.example.weatherapp.dataOneCall
+package com.example.weatherapp.data.dataOneCall
 
 data class FeelsLike(
     val day: Double,
