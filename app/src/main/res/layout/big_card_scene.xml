@@ -57,30 +57,27 @@
 
     <ImageView
         android:id="@+id/icon_weather"
-        android:layout_width="164dp"
-        android:layout_height="140dp"
+        android:layout_width="180dp"
+        android:layout_height="166dp"
         android:layout_gravity="center"
         android:layout_marginTop="15dp"
         android:adjustViewBounds="true"
         android:contentDescription="@string/status_icon_weather"
         android:src="@drawable/rain_icon"
-        app:layout_constraintBottom_toTopOf="@+id/white_line"
+        app:layout_constraintBottom_toTopOf="@+id/linear_info_weather"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.08"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/location"
-        app:layout_constraintVertical_bias="0.23"
         tools:ignore="ImageContrastCheck" />
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/linear_info_weather"
-        android:layout_width="180dp"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
         android:orientation="vertical"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/icon_weather"
-        app:layout_constraintTop_toBottomOf="@+id/location">
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/icon_weather">
 
         <LinearLayout
             android:id="@+id/linearLayout"
@@ -229,7 +226,7 @@
                 android:src="@drawable/rain_icon" />
 
             <TextView
-                android:id="@+id/chance_of_rain"
+                android:id="@+id/volume_of_rain"
                 android:layout_width="100dp"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="40dp"
