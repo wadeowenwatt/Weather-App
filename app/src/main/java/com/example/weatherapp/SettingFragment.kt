@@ -23,7 +23,7 @@ class SettingFragment : Fragment() {
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
         // Inflate the layout for this fragment
         _binding = FragmentSettingBinding.inflate(inflater)
         return binding.root
@@ -79,17 +79,6 @@ class SettingFragment : Fragment() {
             popup.show()
         }
 
-    }
-
-    private fun showMenu(v: View, @MenuRes menuRes: Int) {
-        val popup = PopupMenu(context!!, v)
-        popup.menuInflater.inflate(menuRes, popup.menu)
-
-        popup.setOnDismissListener {
-            // Respond to popup being dismissed.
-        }
-        // Show the popup menu.
-        popup.show()
     }
 
     override fun onDestroyView() {

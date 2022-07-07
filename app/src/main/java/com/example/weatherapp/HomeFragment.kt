@@ -13,6 +13,7 @@ import androidx.core.net.toUri
 import androidx.fragment.app.activityViewModels
 import androidx.navigation.fragment.findNavController
 import coil.load
+import com.example.weatherapp.adapter.PredictDailyAdapter
 import com.example.weatherapp.adapter.PredictHourlyAdapter
 import com.example.weatherapp.databinding.FragmentHomeBinding
 import com.example.weatherapp.viewmodel.DataViewModel
@@ -23,8 +24,6 @@ class HomeFragment : Fragment() {
     private val binding get() = _binding!!
 
     private val viewModel: DataViewModel by activityViewModels()
-
-    private var show = false
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -103,6 +102,9 @@ class HomeFragment : Fragment() {
 
                 val adapter = PredictHourlyAdapter(it.hourly, viewModel)
                 binding.predictHourlyRecycler.adapter = adapter
+
+                val adapterDaily = PredictDailyAdapter(it.daily, viewModel)
+                binding.predictDailyRecycler.adapter = adapterDaily
             }
 
         }
@@ -112,7 +114,7 @@ class HomeFragment : Fragment() {
     private fun scaleCard() {
         val root = binding.cardLayout
         val constraintSet = ConstraintSet()
-        constraintSet.clone(requireContext(), R.layout.small_card_scene)
+        constraintSet.clone(requireContext(), R.layout.layout_small_card)
 
         val transition = ChangeBounds()
         transition.interpolator = AnticipateOvershootInterpolator(1.0f)

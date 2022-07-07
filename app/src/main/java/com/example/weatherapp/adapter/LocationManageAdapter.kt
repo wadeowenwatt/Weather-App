@@ -15,7 +15,7 @@ class LocationManageAdapter(
 ) : RecyclerView.Adapter<LocationManageViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): LocationManageViewHolder {
-        val layoutView = LayoutInflater.from(parent.context).inflate(R.layout.weather_location, parent, false)
+        val layoutView = LayoutInflater.from(parent.context).inflate(R.layout.layout_weather_location, parent, false)
         return LocationManageViewHolder(layoutView)
     }
 

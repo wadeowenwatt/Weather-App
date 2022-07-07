@@ -2,11 +2,11 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
     <item
         android:id="@+id/wind_1"
-        android:title="@string/km_h" />
+        android:title="@string/km_hString" />
     <item android:id="@+id/wind_2"
-        android:title="@string/mil_h" />
+        android:title="@string/mil_hString" />
     <item android:id="@+id/wind_3"
-        android:title="@string/m_s" />
+        android:title="@string/m_sString" />
     <item android:id="@+id/wind_4"
-        android:title="@string/kn" />
+        android:title="@string/knString" />
 </menu>

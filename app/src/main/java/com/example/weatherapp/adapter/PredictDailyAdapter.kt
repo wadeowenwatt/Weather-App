@@ -17,7 +17,7 @@ class PredictDailyAdapter(
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): PredictDailyViewHolder {
         val layoutView = LayoutInflater.from(parent.context)
-            .inflate(R.layout.weather_per_daily, parent, false)
+            .inflate(R.layout.layout_weather_per_daily, parent, false)
         return PredictDailyViewHolder(layoutView)
     }
 

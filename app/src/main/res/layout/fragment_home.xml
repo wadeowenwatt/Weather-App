@@ -411,7 +411,7 @@
                 android:orientation="horizontal"
                 app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
                 tools:itemCount="24"
-                tools:listitem="@layout/weather_per_hour" />
+                tools:listitem="@layout/layout_weather_per_hour" />
 
         </LinearLayout>
 
@@ -453,7 +453,7 @@
             app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
             app:layout_constraintTop_toBottomOf="@+id/materialCardView"
             tools:itemCount="7"
-            tools:listitem="@layout/weather_per_daily" />
+            tools:listitem="@layout/layout_weather_per_daily" />
 
     </LinearLayout>
 

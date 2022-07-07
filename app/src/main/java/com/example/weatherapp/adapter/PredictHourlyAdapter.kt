@@ -17,7 +17,7 @@ class PredictHourlyAdapter(
     RecyclerView.Adapter<PredictHourlyViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): PredictHourlyViewHolder {
-        val layoutView = LayoutInflater.from(parent.context).inflate(R.layout.weather_per_hour, parent, false)
+        val layoutView = LayoutInflater.from(parent.context).inflate(R.layout.layout_weather_per_hour, parent, false)
         return PredictHourlyViewHolder(layoutView)
     }
 

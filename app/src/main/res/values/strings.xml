@@ -39,4 +39,13 @@
     <string name="mmhg">%.2f mmHg</string>
     <string name="inhg">%.2f inHg</string>
     <string name="hpa">%d hPa</string>
+    <string name="mbarString">mbar</string>
+    <string name="mmhgString">mmhg</string>
+    <string name="atmString">atm</string>
+    <string name="inhgString">inhg</string>
+    <string name="hpaString">hpa</string>
+    <string name="km_hString">km/h</string>
+    <string name="mil_hString">mil/h</string>
+    <string name="m_sString">m/s</string>
+    <string name="knString">kn</string>
 </resources>

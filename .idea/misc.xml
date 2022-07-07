@@ -16,8 +16,9 @@
         <entry key="..\:/Android Kotlin/WeatherApp/app/src/main/res/layout/fragment_first.xml" value="0.33" />
         <entry key="..\:/Android Kotlin/WeatherApp/app/src/main/res/layout/fragment_home.xml" value="0.33" />
         <entry key="..\:/Android Kotlin/WeatherApp/app/src/main/res/layout/fragment_home_2.xml" value="0.22" />
-        <entry key="..\:/Android Kotlin/WeatherApp/app/src/main/res/layout/fragment_manage_location.xml" value="0.25" />
-        <entry key="..\:/Android Kotlin/WeatherApp/app/src/main/res/layout/fragment_setting.xml" value="0.1" />
+        <entry key="..\:/Android Kotlin/WeatherApp/app/src/main/res/layout/fragment_manage_location.xml" value="0.33" />
+        <entry key="..\:/Android Kotlin/WeatherApp/app/src/main/res/layout/fragment_setting.xml" value="0.22" />
+        <entry key="..\:/Android Kotlin/WeatherApp/app/src/main/res/layout/layout_big_card.xml" value="0.209375" />
         <entry key="..\:/Android Kotlin/WeatherApp/app/src/main/res/layout/small_card.xml" value="0.209375" />
         <entry key="..\:/Android Kotlin/WeatherApp/app/src/main/res/layout/small_card_scene.xml" value="0.25" />
         <entry key="..\:/Android Kotlin/WeatherApp/app/src/main/res/layout/test_layout.xml" value="0.25" />

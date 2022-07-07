@@ -40,7 +40,6 @@ class DataViewModel : ViewModel() {
     private var count = 0
 
     private val _status = MutableLiveData<String>()
-    val status : LiveData<String> = _status
 
     private val lat = "21.0245"
     private val lon = "105.8412"
@@ -62,7 +61,7 @@ class DataViewModel : ViewModel() {
         return SimpleDateFormat("MMM dd").format(currentDateAndTime)
     }
 
-    fun convertEpochToDayOfWeek(s: Int): String? {
+    fun convertEpochToDayOfWeek(s: Int): String {
         val sumEpoch = s + 25200 // GMT+7
         val currentDateAndTime = Date(sumEpoch.toLong() * 1000)
 
