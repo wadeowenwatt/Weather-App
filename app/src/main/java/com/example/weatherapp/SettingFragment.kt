@@ -35,7 +35,7 @@ class SettingFragment : Fragment() {
             findNavController().navigate(R.id.action_settingFragment_to_homeFragment)
         }
 
-        binding.button2.setOnClickListener { v: View ->
+        binding.tempUnit.setOnClickListener { v: View ->
             val popup = PopupMenu(context!!, v)
             popup.menuInflater.inflate(R.menu.popup_temp_unit, popup.menu)
             popup.setOnMenuItemClickListener { menuItem: MenuItem ->
@@ -48,7 +48,7 @@ class SettingFragment : Fragment() {
             popup.show()
         }
 
-        binding.button3.setOnClickListener { v: View ->
+        binding.windUnit.setOnClickListener { v: View ->
             val popup = PopupMenu(context!!, v)
             popup.menuInflater.inflate(R.menu.popup_wind_unit, popup.menu)
             popup.setOnMenuItemClickListener { menuItem: MenuItem ->
@@ -63,7 +63,7 @@ class SettingFragment : Fragment() {
             popup.show()
         }
 
-        binding.button4.setOnClickListener { v: View ->
+        binding.atmosUnit.setOnClickListener { v: View ->
             val popup = PopupMenu(context!!, v)
             popup.menuInflater.inflate(R.menu.popup_atmos_unit, popup.menu)
             popup.setOnMenuItemClickListener { menuItem: MenuItem ->
@@ -73,6 +73,18 @@ class SettingFragment : Fragment() {
                     R.id.atmos_3 -> viewModel.typeAtmos = "mmHg"
                     R.id.atmos_4 -> viewModel.typeAtmos = "inHg"
                     else -> viewModel.typeWind = "hPa"
+                }
+                true
+            }
+            popup.show()
+        }
+
+        binding.themeUnit.setOnClickListener { v: View ->
+            val popup = PopupMenu(context!!, v)
+            popup.menuInflater.inflate(R.menu.popup_theme, popup.menu)
+            popup.setOnMenuItemClickListener { menuItem: MenuItem ->
+                when (menuItem.itemId) {
+
                 }
                 true
             }

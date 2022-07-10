@@ -14,11 +14,12 @@
         <entry key="..\:/Android Kotlin/WeatherApp/app/src/main/res/layout/circuit_detail.xml" value="0.209375" />
         <entry key="..\:/Android Kotlin/WeatherApp/app/src/main/res/layout/four_attributes_layout.xml" value="0.209375" />
         <entry key="..\:/Android Kotlin/WeatherApp/app/src/main/res/layout/fragment_first.xml" value="0.33" />
-        <entry key="..\:/Android Kotlin/WeatherApp/app/src/main/res/layout/fragment_home.xml" value="0.33" />
+        <entry key="..\:/Android Kotlin/WeatherApp/app/src/main/res/layout/fragment_home.xml" value="0.22" />
         <entry key="..\:/Android Kotlin/WeatherApp/app/src/main/res/layout/fragment_home_2.xml" value="0.22" />
-        <entry key="..\:/Android Kotlin/WeatherApp/app/src/main/res/layout/fragment_manage_location.xml" value="0.33" />
+        <entry key="..\:/Android Kotlin/WeatherApp/app/src/main/res/layout/fragment_manage_location.xml" value="0.25" />
         <entry key="..\:/Android Kotlin/WeatherApp/app/src/main/res/layout/fragment_setting.xml" value="0.22" />
         <entry key="..\:/Android Kotlin/WeatherApp/app/src/main/res/layout/layout_big_card.xml" value="0.209375" />
+        <entry key="..\:/Android Kotlin/WeatherApp/app/src/main/res/layout/layout_small_card.xml" value="0.209375" />
         <entry key="..\:/Android Kotlin/WeatherApp/app/src/main/res/layout/small_card.xml" value="0.209375" />
         <entry key="..\:/Android Kotlin/WeatherApp/app/src/main/res/layout/small_card_scene.xml" value="0.25" />
         <entry key="..\:/Android Kotlin/WeatherApp/app/src/main/res/layout/test_layout.xml" value="0.25" />
@@ -27,6 +28,7 @@
         <entry key="..\:/Android Kotlin/WeatherApp/app/src/main/res/layout/weather_per_hour.xml" value="0.75" />
         <entry key="..\:/Android Kotlin/WeatherApp/app/src/main/res/menu/popup_atmos_unit.xml" value="0.209375" />
         <entry key="..\:/Android Kotlin/WeatherApp/app/src/main/res/menu/popup_temp_unit.xml" value="0.209375" />
+        <entry key="..\:/Android Kotlin/WeatherApp/app/src/main/res/menu/popup_theme.xml" value="0.209375" />
         <entry key="..\:/Android Kotlin/WeatherApp/app/src/main/res/menu/popup_wind_unit.xml" value="0.209375" />
         <entry key="..\:/Android Kotlin/WeatherApp/app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml" value="0.1965" />
         <entry key="..\:/Android Kotlin/WeatherApp/app/src/main/res/mipmap-anydpi-v26/ic_launcher_round.xml" value="0.1965" />

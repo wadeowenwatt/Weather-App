@@ -64,7 +64,6 @@ class ManageLocationFragment : Fragment() {
         viewModel.listSearchData.observe(viewLifecycleOwner) {
             val adapter = LocationManageAdapter(it, viewModel)
             binding.listCity.adapter = adapter
-            Log.e("callback", it.size.toString())
         }
     }
 

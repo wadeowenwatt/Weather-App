@@ -64,30 +64,39 @@
                 android:textColor="@color/white" />
 
             <Button
-                android:id="@+id/button2"
+                android:id="@+id/temp_unit"
                 style="?android:attr/borderlessButtonStyle"
                 android:layout_width="match_parent"
                 android:layout_height="48dp"
                 android:layout_marginTop="20dp"
-                android:text="Temperature unit"
+                android:text="@string/setting_temp_title"
                 android:textAlignment="textStart"
                 android:textAllCaps="false" />
 
             <Button
-                android:id="@+id/button3"
+                android:id="@+id/wind_unit"
                 style="?android:attr/borderlessButtonStyle"
                 android:layout_width="match_parent"
                 android:layout_height="48dp"
-                android:text="Wind speed unit"
+                android:text="@string/setting_wind_title"
                 android:textAlignment="textStart"
                 android:textAllCaps="false" />
 
             <Button
-                android:id="@+id/button4"
+                android:id="@+id/atmos_unit"
                 style="?android:attr/borderlessButtonStyle"
                 android:layout_width="match_parent"
                 android:layout_height="48dp"
-                android:text="Atmospheric pressure unit"
+                android:text="@string/setting_atmos_title"
+                android:textAlignment="textStart"
+                android:textAllCaps="false" />
+
+            <Button
+                android:id="@+id/theme_unit"
+                style="?android:attr/borderlessButtonStyle"
+                android:layout_width="match_parent"
+                android:layout_height="48dp"
+                android:text="@string/setting_theme_title"
                 android:textAlignment="textStart"
                 android:textAllCaps="false" />
 

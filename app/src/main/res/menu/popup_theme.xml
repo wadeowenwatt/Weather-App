@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/theme_1"
+        android:title="@string/item_light_title" />
+
+    <item
+        android:id="@+id/theme_2"
+        android:title="@string/item_dark_title"/>
+
+    <item
+        android:id="@+id/theme_3"
+        android:title="Sync with time"/>
+</menu>

@@ -16,6 +16,7 @@ import coil.load
 import com.example.weatherapp.adapter.PredictDailyAdapter
 import com.example.weatherapp.adapter.PredictHourlyAdapter
 import com.example.weatherapp.databinding.FragmentHomeBinding
+import com.example.weatherapp.listener.OnSwipeTouchListener
 import com.example.weatherapp.viewmodel.DataViewModel
 
 class HomeFragment : Fragment() {
@@ -24,6 +25,8 @@ class HomeFragment : Fragment() {
     private val binding get() = _binding!!
 
     private val viewModel: DataViewModel by activityViewModels()
+
+    private var isSwipeUp = false
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -37,12 +40,35 @@ class HomeFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        binding.button7Days.setOnClickListener {
-            scaleCard()
-            binding.button7Days.visibility = View.GONE
-            binding.listDaily.visibility = View.VISIBLE
-            bindingData()
-        }
+        binding.root.setOnTouchListener(object: OnSwipeTouchListener(requireContext()) {
+            override fun onSwipeUp() {
+                if (!isSwipeUp){
+                    isSwipeUp = true
+                    binding.button7Days.visibility = View.GONE
+                    binding.listDaily.visibility = View.VISIBLE
+                    scaleCard()
+
+                    TransitionManager.beginDelayedTransition(binding.listHour)
+                    TransitionManager.beginDelayedTransition(binding.listDaily)
+
+                    bindingData()
+                }
+            }
+
+            override fun onSwipeDown() {
+                if (isSwipeUp) {
+                    isSwipeUp = false
+                    binding.button7Days.visibility = View.VISIBLE
+                    binding.listDaily.visibility = View.GONE
+                    scaleCard()
+
+                    TransitionManager.beginDelayedTransition(binding.listHour)
+                    TransitionManager.beginDelayedTransition(binding.listDaily)
+
+                    bindingData()
+                }
+            }
+        })
 
         bindingData()
     }
@@ -113,15 +139,17 @@ class HomeFragment : Fragment() {
 
     private fun scaleCard() {
         val root = binding.cardLayout
-        val constraintSet = ConstraintSet()
-        constraintSet.clone(requireContext(), R.layout.layout_small_card)
+        val constraintSet1 = ConstraintSet()
+        constraintSet1.clone(requireContext(), R.layout.layout_small_card)
+        val constraintSet2 = ConstraintSet()
+        constraintSet2.clone(requireContext(), R.layout.layout_big_card)
 
         val transition = ChangeBounds()
         transition.interpolator = AnticipateOvershootInterpolator(1.0f)
         transition.duration = 1200
 
-        TransitionManager.beginDelayedTransition(root, transition)
-        constraintSet.applyTo(root)
+        TransitionManager.beginDelayedTransition(root)
+        if (isSwipeUp) constraintSet1.applyTo(root) else constraintSet2.applyTo(root)
     }
 
     // 2 methods are navigation action button for HomeFragment

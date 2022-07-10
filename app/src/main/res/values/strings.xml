@@ -40,12 +40,18 @@
     <string name="inhg">%.2f inHg</string>
     <string name="hpa">%d hPa</string>
     <string name="mbarString">mbar</string>
-    <string name="mmhgString">mmhg</string>
+    <string name="mmhgString">mmHg</string>
     <string name="atmString">atm</string>
-    <string name="inhgString">inhg</string>
-    <string name="hpaString">hpa</string>
+    <string name="inhgString">inHg</string>
+    <string name="hpaString">hPa</string>
     <string name="km_hString">km/h</string>
     <string name="mil_hString">mil/h</string>
     <string name="m_sString">m/s</string>
     <string name="knString">kn</string>
+    <string name="setting_temp_title">Temperature unit</string>
+    <string name="setting_wind_title">Wind speed unit</string>
+    <string name="setting_atmos_title">Atmospheric pressure unit</string>
+    <string name="setting_theme_title">Theme</string>
+    <string name="item_light_title">Light</string>
+    <string name="item_dark_title">Dark</string>
 </resources>
