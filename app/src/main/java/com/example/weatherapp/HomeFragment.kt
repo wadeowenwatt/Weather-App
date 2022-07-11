@@ -132,6 +132,10 @@ class HomeFragment : Fragment() {
                 binding.predictDailyRecycler.adapter = adapterDaily
             }
 
+            viewModel.status.observe(viewLifecycleOwner) {
+                binding.weatherStatus.text = it
+            }
+
         }
 
     }

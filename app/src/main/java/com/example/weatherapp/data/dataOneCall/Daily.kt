@@ -8,7 +8,7 @@ data class Daily(
     val humidity: Int,
     val moon_phase: Double,
     val moonrise: Int,
-    val moonSet: Int,
+    val moonset: Int,
     val pop: Double,
     val pressure: Int,
     val rain: Double? = null,
