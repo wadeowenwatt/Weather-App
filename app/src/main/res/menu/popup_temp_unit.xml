@@ -3,6 +3,7 @@
     <item
         android:id="@+id/option_1"
         android:title="@string/c_degree" />
-    <item android:id="@+id/option_2"
+    <item
+        android:id="@+id/option_2"
         android:title="@string/f_degree" />
 </menu>

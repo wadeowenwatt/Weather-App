@@ -5,6 +5,7 @@
       <map>
         <entry key="..\:/Android Kotlin/WeatherApp/app/src/main/res/drawable/custom_rectangle.xml" value="0.174" />
         <entry key="..\:/Android Kotlin/WeatherApp/app/src/main/res/drawable/gradient_background.xml" value="0.198" />
+        <entry key="..\:/Android Kotlin/WeatherApp/app/src/main/res/drawable/gradient_background_dark.xml" value="0.1" />
         <entry key="..\:/Android Kotlin/WeatherApp/app/src/main/res/drawable/ic_launcher_background.xml" value="0.1965" />
         <entry key="..\:/Android Kotlin/WeatherApp/app/src/main/res/drawable/test.xml" value="0.172" />
         <entry key="..\:/Android Kotlin/WeatherApp/app/src/main/res/layout/activity_main.xml" value="0.22" />
@@ -14,12 +15,15 @@
         <entry key="..\:/Android Kotlin/WeatherApp/app/src/main/res/layout/circuit_detail.xml" value="0.209375" />
         <entry key="..\:/Android Kotlin/WeatherApp/app/src/main/res/layout/four_attributes_layout.xml" value="0.209375" />
         <entry key="..\:/Android Kotlin/WeatherApp/app/src/main/res/layout/fragment_first.xml" value="0.33" />
-        <entry key="..\:/Android Kotlin/WeatherApp/app/src/main/res/layout/fragment_home.xml" value="0.22" />
+        <entry key="..\:/Android Kotlin/WeatherApp/app/src/main/res/layout/fragment_home.xml" value="0.25" />
         <entry key="..\:/Android Kotlin/WeatherApp/app/src/main/res/layout/fragment_home_2.xml" value="0.22" />
         <entry key="..\:/Android Kotlin/WeatherApp/app/src/main/res/layout/fragment_manage_location.xml" value="0.25" />
         <entry key="..\:/Android Kotlin/WeatherApp/app/src/main/res/layout/fragment_setting.xml" value="0.22" />
         <entry key="..\:/Android Kotlin/WeatherApp/app/src/main/res/layout/layout_big_card.xml" value="0.209375" />
         <entry key="..\:/Android Kotlin/WeatherApp/app/src/main/res/layout/layout_small_card.xml" value="0.209375" />
+        <entry key="..\:/Android Kotlin/WeatherApp/app/src/main/res/layout/layout_weather_location.xml" value="0.32338308457711445" />
+        <entry key="..\:/Android Kotlin/WeatherApp/app/src/main/res/layout/layout_weather_per_daily.xml" value="0.33" />
+        <entry key="..\:/Android Kotlin/WeatherApp/app/src/main/res/layout/layout_weather_per_hour.xml" value="0.209375" />
         <entry key="..\:/Android Kotlin/WeatherApp/app/src/main/res/layout/small_card.xml" value="0.209375" />
         <entry key="..\:/Android Kotlin/WeatherApp/app/src/main/res/layout/small_card_scene.xml" value="0.25" />
         <entry key="..\:/Android Kotlin/WeatherApp/app/src/main/res/layout/test_layout.xml" value="0.25" />

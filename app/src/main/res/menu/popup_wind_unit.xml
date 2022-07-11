@@ -3,10 +3,13 @@
     <item
         android:id="@+id/wind_1"
         android:title="@string/km_hString" />
-    <item android:id="@+id/wind_2"
+    <item
+        android:id="@+id/wind_2"
         android:title="@string/mil_hString" />
-    <item android:id="@+id/wind_3"
+    <item
+        android:id="@+id/wind_3"
         android:title="@string/m_sString" />
-    <item android:id="@+id/wind_4"
+    <item
+        android:id="@+id/wind_4"
         android:title="@string/knString" />
 </menu>

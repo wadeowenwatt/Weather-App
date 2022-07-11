@@ -76,7 +76,6 @@ class HomeFragment : Fragment() {
     private fun bindingData() {
 
         if (binding.cardLayout.visibility == View.VISIBLE) {
-
             binding.addButton.setOnClickListener { onClickLocationManageButton() }
             binding.settingButton.setOnClickListener { onClickSettingButton() }
 

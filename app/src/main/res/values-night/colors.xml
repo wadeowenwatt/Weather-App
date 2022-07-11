@@ -7,13 +7,13 @@
     <color name="teal_700">#FF018786</color>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFF</color>
-    <color name="blue3">#656565</color>
+    <color name="blue3">#232323</color>
 
-    <!--  color for light theme  -->
-    <color name="background">#FFFFFFFF</color>
-    <color name="text_location">#1B2541</color>
-    <color name="card_not_gradient">#2C79C1</color>
+    <!--  color for dark theme  -->
+    <color name="background">#484848</color>
+    <color name="text_location">#FFFFFF</color>
+    <color name="card_not_gradient">#2C2C2C</color>
     <color name="blue4">#0A44E6</color>
-    <color name="card_color_gradient" tools:ignore="ReferenceType">@drawable/gradient_background</color>
-    <color name="forcats_for_7_text">#2C79C1</color>
+    <color name="card_color_gradient" tools:ignore="ReferenceType">@drawable/gradient_background_dark</color>
+    <color name="forcats_for_7_text">#FFFFFF</color>
 </resources>

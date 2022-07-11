@@ -3,12 +3,16 @@
     <item
         android:id="@+id/atmos_1"
         android:title="@string/mbarString" />
-    <item android:id="@+id/atmos_2"
+    <item
+        android:id="@+id/atmos_2"
         android:title="@string/atmString" />
-    <item android:id="@+id/atmos_3"
+    <item
+        android:id="@+id/atmos_3"
         android:title="@string/mmhgString" />
-    <item android:id="@+id/atmos_4"
+    <item
+        android:id="@+id/atmos_4"
         android:title="@string/inhgString" />
-    <item android:id="@+id/atmos_5"
-        android:title="@string/hpaString"/>
+    <item
+        android:id="@+id/atmos_5"
+        android:title="@string/hpaString" />
 </menu>
