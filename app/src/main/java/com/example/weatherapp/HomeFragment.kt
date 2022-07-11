@@ -9,10 +9,8 @@ import android.view.View
 import android.view.ViewGroup
 import android.view.animation.AnticipateOvershootInterpolator
 import androidx.constraintlayout.widget.ConstraintSet
-import androidx.core.net.toUri
 import androidx.fragment.app.activityViewModels
 import androidx.navigation.fragment.findNavController
-import coil.load
 import com.example.weatherapp.adapter.PredictDailyAdapter
 import com.example.weatherapp.adapter.PredictHourlyAdapter
 import com.example.weatherapp.databinding.FragmentHomeBinding
@@ -93,12 +91,14 @@ class HomeFragment : Fragment() {
                     binding.temp.text = "${((it.current.temp - 273.15) * (9 / 5) + 32).toInt()}"
                 }
 
-                val iconUrl =
-                    "http://openweathermap.org/img/wn/" + it.current.weather[0].icon + "@2x.png"
-                val uri = iconUrl.toUri().buildUpon().scheme("https").build()
-                binding.iconWeather.load(uri) {
-                    placeholder(R.drawable.placeholdericon)
-                }
+//                val iconUrl =
+//                    "http://openweathermap.org/img/wn/" + it.current.weather[0].icon + "@2x.png"
+//                val uri = iconUrl.toUri().buildUpon().scheme("https").build()
+//                binding.iconWeather.load(uri) {
+//                    placeholder(R.drawable.placeholdericon)
+//                }
+
+                binding.iconWeather.setImageResource(viewModel.getStatusIcon(it.current.weather[0].icon))
 
                 // 4 attribute: wind, rain, pressure and humidity
                 when (viewModel.typeWind) {

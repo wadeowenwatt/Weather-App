@@ -30,9 +30,11 @@ class PredictHourlyAdapter(
             holder.hourText.text = viewModel.convertEpochToHour(element.dt)
         }
 
-        val iconUrl = "http://openweathermap.org/img/wn/" + element.weather[0].icon + "@2x.png"
-        val uri = iconUrl.toUri().buildUpon().scheme("https").build()
-        holder.iconStatus.load(uri)
+//        val iconUrl = "http://openweathermap.org/img/wn/" + element.weather[0].icon + "@2x.png"
+//        val uri = iconUrl.toUri().buildUpon().scheme("https").build()
+//        holder.iconStatus.load(uri)
+
+        holder.iconStatus.setImageResource(viewModel.getStatusIcon(element.weather[0].icon))
 
         if (viewModel.typeDegree == "C") {
             holder.temp.text = "${(element.temp - 273.15).toInt()}°"

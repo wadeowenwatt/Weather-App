@@ -5,6 +5,8 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import com.example.weatherapp.R
+import com.example.weatherapp.R.drawable.icon13d13n
 import com.example.weatherapp.data.dataCurrent.CurrentWeather
 import com.example.weatherapp.data.dataOneCall.WeatherData
 import com.example.weatherapp.network.CurrentApi
@@ -40,7 +42,7 @@ class DataViewModel : ViewModel() {
     private var count = 0
 
     private val _status = MutableLiveData<String>()
-    val status : LiveData<String> = _status!!
+    val status : LiveData<String> = _status
 
     private val lat = "21.0245"
     private val lon = "105.8412"
@@ -48,6 +50,27 @@ class DataViewModel : ViewModel() {
 
     init {
         getWeatherData()
+    }
+
+    fun getStatusIcon(id : String) : Int {
+        when (id) {
+            "01d" -> return R.drawable.icon01d
+            "02d" -> return R.drawable.icon02d
+            "03d" -> return R.drawable.icon03d
+            "04d" -> return R.drawable.icon04d04n
+            "09d" -> return R.drawable.icon09d09n
+            "10d" -> return R.drawable.icon10d
+            "11d" -> return R.drawable.icon11d11n
+            "13d" -> return icon13d13n
+            "01n" -> return R.drawable.icon01n
+            "02n" -> return R.drawable.icon02n
+            "03n" -> return R.drawable.icon03n
+            "04n" -> return R.drawable.icon04d04n
+            "09n" -> return R.drawable.icon09d09n
+            "10n" -> return R.drawable.icon10n
+            "11n" -> return R.drawable.icon11d11n
+            else -> return icon13d13n
+        }
     }
 
     fun convertEpochToHour(s: Int): String? {

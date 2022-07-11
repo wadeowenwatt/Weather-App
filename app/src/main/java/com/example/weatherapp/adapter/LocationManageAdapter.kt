@@ -29,9 +29,11 @@ class LocationManageAdapter(
             holder.temp.text = "${((element.main.temp - 273.15) * (9 / 5) + 32).toInt()}°"
         }
 
-        val iconUrl = "http://openweathermap.org/img/wn/" + element.weather[0].icon + "@2x.png"
-        val uri = iconUrl.toUri().buildUpon().scheme("https").build()
-        holder.iconWeather.load(uri)
+//        val iconUrl = "http://openweathermap.org/img/wn/" + element.weather[0].icon + "@2x.png"
+//        val uri = iconUrl.toUri().buildUpon().scheme("https").build()
+//        holder.iconWeather.load(uri)
+
+        holder.iconWeather.setImageResource(viewModel.getStatusIcon(element.weather[0].icon))
 
         holder.status.text = element.weather[0].main
     }
