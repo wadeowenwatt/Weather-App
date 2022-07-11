@@ -11,7 +11,10 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
 import androidx.navigation.fragment.findNavController
 import com.example.weatherapp.databinding.FragmentSettingBinding
+import com.example.weatherapp.network.FileConfig.NIGHT_MODE
 import com.example.weatherapp.viewmodel.DataViewModel
+import java.text.SimpleDateFormat
+import java.util.*
 
 class SettingFragment : Fragment() {
 
@@ -84,8 +87,25 @@ class SettingFragment : Fragment() {
             popup.menuInflater.inflate(R.menu.popup_theme, popup.menu)
             popup.setOnMenuItemClickListener { menuItem: MenuItem ->
                 when (menuItem.itemId) {
-                    R.id.theme_1 -> AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO)
-                    R.id.theme_2 -> AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES)
+                    R.id.theme_1 -> {
+                        NIGHT_MODE = AppCompatDelegate.MODE_NIGHT_NO
+                        AppCompatDelegate.setDefaultNightMode(NIGHT_MODE)
+                    }
+                    R.id.theme_2 -> {
+                        NIGHT_MODE = AppCompatDelegate.MODE_NIGHT_YES
+                        AppCompatDelegate.setDefaultNightMode(NIGHT_MODE)
+                    }
+                    R.id.theme_3 -> {
+                        val date = Calendar.getInstance().time
+                        val time = SimpleDateFormat("kk").format(date)
+                        if (time.toInt() > 18) {
+                            NIGHT_MODE = AppCompatDelegate.MODE_NIGHT_YES
+                            AppCompatDelegate.setDefaultNightMode(NIGHT_MODE)
+                        } else {
+                            NIGHT_MODE = AppCompatDelegate.MODE_NIGHT_NO
+                            AppCompatDelegate.setDefaultNightMode(NIGHT_MODE)
+                        }
+                    }
                 }
                 true
             }
