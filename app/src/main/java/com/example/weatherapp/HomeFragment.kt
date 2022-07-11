@@ -119,10 +119,10 @@ class HomeFragment : Fragment() {
                 }
                 binding.humidity.text = "${it.current.humidity} %"
 
-                binding.dayInWeek.text = "${viewModel.convertEpochToDayOfWeek(it.current.dt)}"
+                binding.dayInWeek.text = viewModel.convertEpochToDayOfWeek(it.current.dt)
                 binding.dayInMonth.text = "${viewModel.convertEpochToDay(it.current.dt)}"
 
-                binding.dayInWeekBold.text = "${viewModel.convertEpochToDayOfWeek(it.current.dt)}"
+                binding.dayInWeekBold.text = viewModel.convertEpochToDayOfWeek(it.current.dt)
                 binding.dayInMonthBold.text = "${viewModel.convertEpochToDay(it.current.dt)}"
 
                 val adapter = PredictHourlyAdapter(it.hourly, viewModel)

@@ -25,7 +25,7 @@ class DataViewModel : ViewModel() {
     val currentData : LiveData<CurrentWeather> = _currentData
 
     private val _searchData = MutableLiveData<CurrentWeather>()
-    val searchData : LiveData<CurrentWeather> = _searchData
+    private val searchData : LiveData<CurrentWeather> = _searchData
 
     private var _listSearchData = MutableLiveData<MutableList<CurrentWeather>>(mutableListOf())
 
