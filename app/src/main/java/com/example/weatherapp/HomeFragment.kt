@@ -11,10 +11,11 @@ import android.view.animation.AnticipateOvershootInterpolator
 import androidx.constraintlayout.widget.ConstraintSet
 import androidx.fragment.app.activityViewModels
 import androidx.navigation.fragment.findNavController
+import com.example.weatherapp.R
 import com.example.weatherapp.adapter.PredictDailyAdapter
 import com.example.weatherapp.adapter.PredictHourlyAdapter
 import com.example.weatherapp.databinding.FragmentHomeBinding
-import com.example.weatherapp.listener.OnSwipeTouchListener
+import com.example.weatherapp.domain.gesture.OnSwipeTouchListener
 import com.example.weatherapp.viewmodel.DataViewModel
 
 class HomeFragment : Fragment() {

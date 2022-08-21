@@ -11,7 +11,7 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
 import androidx.navigation.fragment.findNavController
 import com.example.weatherapp.databinding.FragmentSettingBinding
-import com.example.weatherapp.network.FileConfig.NIGHT_MODE
+import com.example.weatherapp.config.FileConfig.NIGHT_MODE
 import com.example.weatherapp.viewmodel.DataViewModel
 import java.text.SimpleDateFormat
 import java.util.*

@@ -1,4 +1,4 @@
-package com.example.weatherapp.network
+package com.example.weatherapp.config
 
 object FileConfig {
     const val BASE_URL = "https://api.openweathermap.org/"

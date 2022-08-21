@@ -1,7 +1,7 @@
 package com.example.weatherapp.network
 
 import com.example.weatherapp.data.dataOneCall.WeatherData
-import com.example.weatherapp.network.FileConfig.BASE_URL
+import com.example.weatherapp.config.FileConfig.BASE_URL
 import com.squareup.moshi.Moshi
 import com.squareup.moshi.kotlin.reflect.KotlinJsonAdapterFactory
 import retrofit2.Retrofit

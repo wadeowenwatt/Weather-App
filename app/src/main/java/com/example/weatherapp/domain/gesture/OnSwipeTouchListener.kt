@@ -1,4 +1,4 @@
-package com.example.weatherapp.listener
+package com.example.weatherapp.domain.gesture
 
 import android.annotation.SuppressLint
 import android.content.Context

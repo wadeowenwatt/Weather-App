@@ -6,7 +6,7 @@ import androidx.navigation.NavController
 import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.ui.setupActionBarWithNavController
 import com.example.weatherapp.databinding.ActivityMainBinding
-import com.example.weatherapp.network.FileConfig.NIGHT_MODE
+import com.example.weatherapp.config.FileConfig.NIGHT_MODE
 
 class MainActivity : AppCompatActivity() {
 
